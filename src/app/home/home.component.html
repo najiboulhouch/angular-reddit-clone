@@ -1,0 +1,44 @@
+<div class="reddit-body mt-3">
+    <div class="container top-margin">
+      <div class="row">
+        <hr />
+        <div class="col-md-9">
+          <!-- Display Posts-->
+          <app-post-tile [posts]="posts"></app-post-tile>
+          <!-- begin footer -->
+<div *ngIf="posts?.length != 0">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="col-md-12">
+              <div class="row">
+                  <div class="col-md-9 mt-4">
+                      <ngb-pagination class="d-flex justify-content-center" [(page)]="thePageNumber"
+                                      [pageSize]="thePageSize"
+                                      [collectionSize]="theTotalElements"
+                                      [maxSize]="5"
+                                      [boundaryLinks]="true"
+                                      (pageChange)="listPosts()">
+                      </ngb-pagination>
+                  </div>
+                  <div class="col-md-3" style="text-align: right;">
+                      <span class="mr-2">Page Size </span>
+                       <select class="form-control" #myPageSelect (change)="updatePageSize(myPageSelect.value)">
+                          <option>2</option>
+                          <option selected="true">5</option>
+                          <option>10</option>
+                          <option>20</option>
+                       </select>       
+                  </div>
+              </div>
+          </div>
+      </div>    
+  </div>
+</div>
+    </div>
+        <div class="col-md-3">
+          <app-side-bar></app-side-bar>
+          <app-subreddit-side-bar></app-subreddit-side-bar>
+        </div>
+      </div>
+    </div>
+</div>
