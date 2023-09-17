@@ -28,7 +28,7 @@ export class PostService {
   }
 
   getAllPostsByUser(name: string): Observable<PostModel[]> {
-    return this.httpClient.get<PostModel[]>(`${this.baseUrl}/posts/posts/by-user/${name}`);
+    return this.httpClient.get<PostModel[]>(`${this.baseUrl}/posts/by-user/${name}`);
   }
 
   getPostListPaginate(thePage: number, thePageSize: number): Observable<Array<PostModel>> {
